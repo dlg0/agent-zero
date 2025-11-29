@@ -10,11 +10,11 @@ This project demonstrates an end-to-end pipeline including assumptions packs, sc
 ## Installation
 
 ```bash
-# Using uv (recommended)
-uv pip install -e .
+# Install directly from GitHub
+uv tool install git+https://github.com/dlg0/agent-zero
 
-# Or using pip
-pip install -e .
+# Update to latest version
+uv tool upgrade agentzero
 ```
 
 ## Usage
@@ -46,11 +46,13 @@ agent-zero/
 ## Development
 
 ```bash
-# Install dev dependencies
-uv pip install -e ".[dev]"
+# Clone and install dev dependencies
+git clone https://github.com/dlg0/agent-zero.git
+cd agent-zero
+uv sync --all-extras
 
 # Run tests
-pytest
+uv run pytest
 ```
 
 ## Contributing
