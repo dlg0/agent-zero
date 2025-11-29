@@ -7,13 +7,10 @@ policy table for the current year. All markets are independent in v1.
 
 from __future__ import annotations
 
-from typing import List
-import pandas as pd
-
-from ..utils.types import WorldState, Action
+from ..utils.types import Action, WorldState
 
 
-def clear_markets(world: WorldState, actions: List[Action]) -> WorldState:
+def clear_markets(world: WorldState, actions: list[Action]) -> WorldState:
     """Clear the electricity and hydrogen markets and update prices.
 
     The clearing rule adjusts prices proportionally to the excess

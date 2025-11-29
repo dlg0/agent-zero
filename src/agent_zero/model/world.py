@@ -6,11 +6,10 @@ policy parameters. It is immutable: each step creates a new world.
 
 from __future__ import annotations
 
-from typing import Dict
 import pandas as pd
 
 from ..utils.types import WorldState
-from .defaults import DEFAULT_PRICES, DEFAULT_DEMAND
+from .defaults import DEFAULT_DEMAND, DEFAULT_PRICES
 
 
 def init_world(assumptions: pd.DataFrame, policy: pd.DataFrame, start_year: int) -> WorldState:
@@ -26,10 +25,10 @@ def init_world(assumptions: pd.DataFrame, policy: pd.DataFrame, start_year: int)
         carbon = float(policy.loc[cp_mask, "value"].iloc[0])
     else:
         carbon = DEFAULT_PRICES["carbon"]
-    prices: Dict[str, float] = dict(DEFAULT_PRICES)
+    prices: dict[str, float] = dict(DEFAULT_PRICES)
     prices["carbon"] = carbon
 
-    demand: Dict[str, float] = dict(DEFAULT_DEMAND)
+    demand: dict[str, float] = dict(DEFAULT_DEMAND)
     # override demand from assumptions if provided
     for commodity in ["electricity", "hydrogen"]:
         # 'tech' column indicates the commodity in this toy model

@@ -7,17 +7,17 @@ simulations and list completed runs.
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
+
 import click
 
-from .io.load_pack import load_assumptions_pack, load_scenario_pack, load_manifest
-from .io.validate import validate_assumptions_pack, validate_scenario_pack
 from .io.apply_patches import apply_patches
 from .io.hashing import make_run_id
-from .model.world import init_world
+from .io.load_pack import load_assumptions_pack, load_manifest, load_scenario_pack
+from .io.validate import validate_assumptions_pack, validate_scenario_pack
 from .model.agents import init_agents
 from .model.simulate import simulate
+from .model.world import init_world
 from .post.results_pack import write_run_bundle
 
 # Bump this when the engine changes in incompatible ways
@@ -64,7 +64,9 @@ def validate(pack_path: str) -> None:
 @main.command()
 @click.option("--assum", required=True, help="Assumptions pack name under data/assumptions_packs")
 @click.option("--scen", required=False, help="Scenario pack name under data/scenario_packs")
-@click.option("--out", required=True, help="Output Parquet file path for resolved assumptions table")
+@click.option(
+    "--out", required=True, help="Output Parquet file path for resolved assumptions table"
+)
 def build(assum: str, scen: str | None, out: str) -> None:
     """Build a resolved assumptions table from a baseline and scenario.
 
@@ -101,7 +103,7 @@ def run(assum: str, scen: str | None, years: str, seed: int, out: str) -> None:
     """
     # parse years range
     try:
-        start_year, end_year = [int(x) for x in years.split(":")]
+        start_year, end_year = (int(x) for x in years.split(":"))
     except Exception as e:
         raise click.BadParameter("--years must be in the format start:end") from e
 
@@ -132,7 +134,7 @@ def run(assum: str, scen: str | None, years: str, seed: int, out: str) -> None:
         ap["manifest"].get("hash", "NA"),
         sp["manifest"].get("hash", "NA") if sp else None,
         years=year_list,
-        seed=seed
+        seed=seed,
     )
 
     manifests = {
