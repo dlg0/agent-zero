@@ -12,7 +12,6 @@ keywords = ["agent-based", "modeling", "decarbonisation", "simulation"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -24,6 +23,16 @@ dependencies = [
   "numpy>=2.0",
   "pyyaml>=6.0",
   "click>=8.1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=4.0",
+  "ruff>=0.8",
+  "mypy>=1.13",
+  "pandas-stubs>=2.2",
+  "types-PyYAML>=6.0",
 ]
 
 [project.urls]
@@ -40,3 +49,77 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra -q"
+xfail_strict = true
+markers = [
+    "integration: tests that touch disk / real data / multiple modules",
+    "e2e: full end-to-end runs (slowest)",
+]
+
+[tool.coverage.run]
+source = ["agent_zero"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
+
+# ---------------------------------------------------------------------------
+# Ruff (linting + formatting)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "SIM",    # flake8-simplify
+    "TCH",    # flake8-type-checking
+    "RUF",    # Ruff-specific rules
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "B008",   # function call in default argument (Click uses this)
+    "TCH",    # type-checking imports (overly strict for this project)
+    "RUF002", # ambiguous unicode characters in docstrings
+    "RUF003", # ambiguous unicode characters in comments
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agent_zero"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+# ---------------------------------------------------------------------------
+# Mypy (type checking)
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.10"
+strict = false
+warn_return_any = false
+warn_unused_ignores = true
+show_error_codes = true
+check_untyped_defs = true
+disallow_untyped_defs = false
+
+[[tool.mypy.overrides]]
+module = ["pyarrow", "numpy", "click"]
+ignore_missing_imports = true

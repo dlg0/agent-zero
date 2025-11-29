@@ -1,0 +1,3 @@
+target,region,sector,tech,year,param,operation,value,unit,rationale
+policy,AUS,,,2025,carbon_price,replace,25.0,AUD_2024/tCO2,Test carbon price increase
+assumptions,AUS,,electricity,2025,capex,scale,0.9,AUD_2024/kW,Test 10% capex reduction

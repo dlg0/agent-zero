@@ -1,3 +1,102 @@
+## Development Commands
+
+This project uses `uv` for package management. Install dev dependencies with:
+
+```bash
+uv sync --all-extras
+```
+
+### Linting & Formatting (ruff)
+
+```bash
+uv run ruff check .           # Lint
+uv run ruff check --fix .     # Lint with auto-fix
+uv run ruff format .          # Format code
+uv run ruff format --check .  # Check formatting
+```
+
+### Type Checking (mypy)
+
+```bash
+uv run mypy src/
+```
+
+### Testing (pytest)
+
+```bash
+uv run pytest                      # All tests
+uv run pytest tests/unit           # Fast unit tests only
+uv run pytest -m integration       # Integration tests
+uv run pytest -m e2e               # End-to-end CLI tests
+uv run pytest --cov=agent_zero     # With coverage
+```
+
+### Full CI Check (run locally)
+
+```bash
+uv run ruff format --check . && uv run ruff check . && uv run mypy src/ && uv run pytest
+```
+
+---
+
+## Before Opening a PR
+
+**IMPORTANT**: All PRs must pass CI checks before merge. Branch protection enforces this.
+
+### Required Steps (humans and agents)
+
+1. **Run the full CI check locally** before pushing:
+   ```bash
+   uv run ruff format --check . && uv run ruff check . && uv run mypy src/ && uv run pytest
+   ```
+
+2. **Fix any issues** before opening the PR:
+   - Formatting: `uv run ruff format .`
+   - Lint auto-fix: `uv run ruff check --fix .`
+   - Type errors: Fix manually based on mypy output
+   - Test failures: Fix the code or update tests
+
+3. **Create PR against `main`** - direct pushes are blocked
+
+### If You Cannot Run Checks Locally
+
+If running in a restricted environment without full tooling:
+- Still open the PR - CI will run all checks
+- Monitor the CI results and push fixes as needed
+- PR cannot merge until all checks pass
+
+### Quick Feedback (faster iteration)
+
+For faster feedback during development, run checks incrementally:
+```bash
+uv run ruff format . && uv run ruff check --fix .  # Format + lint (fast)
+uv run mypy src/                                    # Type check
+uv run pytest tests/unit -x                         # Unit tests, stop on first failure
+```
+
+---
+
+## Branch Protection
+
+This repository uses branch protection on `main`:
+
+- ✅ PRs required (no direct pushes)
+- ✅ CI checks must pass before merge
+- ✅ Branch must be up-to-date before merge
+
+### Setting Up Branch Protection (maintainers)
+
+1. Go to **Settings → Branches → Add branch protection rule**
+2. Branch name pattern: `main`
+3. Enable:
+   - ☑️ Require a pull request before merging
+   - ☑️ Require status checks to pass before merging
+     - Add required checks: `Lint & Format`, `Type Check`, `Test (Python 3.10)`, `Test (Python 3.11)`, `Test (Python 3.12)`
+   - ☑️ Require branches to be up to date before merging
+   - ☑️ Do not allow bypassing the above settings
+
+---
+
 ## Issue Tracking with bd (beads)
 
 **IMPORTANT**: This project uses **bd (beads)** for ALL issue tracking. Do NOT use markdown TODOs, task lists, or other tracking methods.

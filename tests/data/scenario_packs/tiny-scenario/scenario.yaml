@@ -1,0 +1,4 @@
+id: "tiny-scenario"
+name: "Tiny Test Scenario"
+description: "Minimal scenario for unit testing."
+base_assumptions_id: "tiny-baseline"
