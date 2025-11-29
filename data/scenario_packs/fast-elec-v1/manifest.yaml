@@ -1,0 +1,7 @@
+id: "fast-elec-v1"
+type: "scenario"
+version: "1.0.0"
+created: "2025-01-01"
+base_assumptions_id: "baseline-v1"
+description: "Simple scenario demonstrating changes to carbon price and technology costs"
+hash: "dev"
