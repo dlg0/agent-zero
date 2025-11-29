@@ -1,0 +1,7 @@
+id: "baseline-v1"
+type: "assumptions"
+version: "1.0.0"
+created: "2025-01-01"
+engine_min_version: ">=0.1.0"
+description: "Toy baseline assumptions pack for the Pathways ABM v1"
+hash: "dev"

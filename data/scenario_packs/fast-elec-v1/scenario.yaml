@@ -1,0 +1,4 @@
+id: "fast-elec-v1"
+name: "Fast Electrification"
+description: "Scenario increasing carbon price and reducing electricity capex."
+base_assumptions_id: "baseline-v1"

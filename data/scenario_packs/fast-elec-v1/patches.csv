@@ -1,0 +1,3 @@
+target,region,sector,tech,year,param,operation,value,unit,rationale
+policy,AUS,,,2025,carbon_price,replace,50.0,AUD_2024/tCO2,Increase carbon price in first year
+assumptions,AUS,,electricity,2025,capex,scale,0.8,AUD_2024/kW,Reduce electricity capex by 20%
