@@ -9,21 +9,21 @@ A results bundle consists of:
 
 from __future__ import annotations
 
-from pathlib import Path
-from typing import List, Tuple, Dict
 import json
 from datetime import datetime
+from pathlib import Path
+
 import pandas as pd
 import yaml
 
-from ..utils.types import WorldState, AgentState, Action
+from ..utils.types import Action, AgentState, WorldState
 
 
 def write_run_bundle(
     out_base: Path,
     run_id: str,
-    history: List[Tuple[WorldState, List[AgentState], List[Action]]],
-    manifests: Dict[str, Dict],
+    history: list[tuple[WorldState, list[AgentState], list[Action]]],
+    manifests: dict[str, dict],
 ) -> Path:
     """Write a run bundle to disk.
 
@@ -48,13 +48,13 @@ def write_run_bundle(
     run_dir = out_base / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
 
-    timeseries_rows = []
+    timeseries_rows: list[dict[str, float | int]] = []
     agent_rows = []
     # iterate over history and collect rows
-    for world, agents, actions in history:
+    for world, agents, _actions in history:
         t = world.t
         # timeseries row: prices, flows, demand, emissions
-        row = {"year": t}
+        row: dict[str, float | int] = {"year": t}
         row.update({f"price_{k}": v for k, v in world.prices.items()})
         row.update(world.flows)
         row.update({f"demand_{k}": v for k, v in world.demand.items()})
@@ -62,17 +62,19 @@ def write_run_bundle(
         timeseries_rows.append(row)
         # agent rows: capacity etc.
         for ag in agents:
-            agent_rows.append({
-                "year": t,
-                "agent_id": ag.id,
-                "agent_type": ag.agent_type,
-                "region": ag.region,
-                "sector": ag.sector,
-                "tech": ag.tech,
-                "capacity": ag.capacity,
-                "cash": ag.cash,
-                "horizon": ag.horizon,
-            })
+            agent_rows.append(
+                {
+                    "year": t,
+                    "agent_id": ag.id,
+                    "agent_type": ag.agent_type,
+                    "region": ag.region,
+                    "sector": ag.sector,
+                    "tech": ag.tech,
+                    "capacity": ag.capacity,
+                    "cash": ag.cash,
+                    "horizon": ag.horizon,
+                }
+            )
 
     ts_df = pd.DataFrame(timeseries_rows)
     ag_df = pd.DataFrame(agent_rows)
@@ -97,7 +99,9 @@ def write_run_bundle(
         "run_id": run_id,
         "created": datetime.utcnow().isoformat(),
         "peak_emissions": float(ts_df["emissions"].max()) if not ts_df.empty else 0.0,
-        "year_net_zero": int(ts_df.loc[ts_df["emissions"].idxmin(), "year"]) if not ts_df.empty else None,
+        "year_net_zero": int(ts_df.loc[ts_df["emissions"].idxmin(), "year"])  # type: ignore[arg-type]
+        if not ts_df.empty
+        else None,
     }
     with open(run_dir / "summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)

@@ -10,16 +10,15 @@ from __future__ import annotations
 
 import hashlib
 import json
-from typing import List, Optional
 
 
 def make_run_id(
     engine_version: str,
     assumptions_hash: str,
-    scenario_hash: Optional[str],
-    years: List[int],
+    scenario_hash: str | None,
+    years: list[int],
     seed: int,
-    opts: Optional[dict] = None,
+    opts: dict | None = None,
 ) -> str:
     """Compute a deterministic run identifier.
 

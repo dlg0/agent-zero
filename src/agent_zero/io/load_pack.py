@@ -10,6 +10,7 @@ contain `scenario.yaml` and `patches.csv`.
 from __future__ import annotations
 
 from pathlib import Path
+
 import pandas as pd
 import yaml
 
@@ -17,7 +18,7 @@ import yaml
 def load_manifest(pack_dir: Path) -> dict:
     """Load the manifest.yaml file from a pack directory."""
     manifest_path = pack_dir / "manifest.yaml"
-    with open(manifest_path, "r", encoding="utf-8") as f:
+    with open(manifest_path, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
@@ -67,7 +68,7 @@ def load_scenario_pack(pack_dir: Path) -> dict:
     """
     man = load_manifest(pack_dir)
     scenario_file = pack_dir / "scenario.yaml"
-    with open(scenario_file, "r", encoding="utf-8") as f:
+    with open(scenario_file, encoding="utf-8") as f:
         scenario = yaml.safe_load(f)
     patches_file = pack_dir / "patches.parquet"
     # fallback to CSV if parquet engine unavailable

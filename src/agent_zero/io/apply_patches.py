@@ -10,7 +10,6 @@ rows are found and the operation is replace, a new row is added.
 
 from __future__ import annotations
 
-from typing import Tuple
 import pandas as pd
 
 # list of dimension columns used to match rows; must appear in both
@@ -31,7 +30,7 @@ def _ensure_dim_cols(df: pd.DataFrame) -> pd.DataFrame:
 
 def apply_patches(
     assumptions: pd.DataFrame, policy: pd.DataFrame, patches: pd.DataFrame
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Apply scenario patches to the assumptions and policy tables.
 
     Returns a tuple of (new_assumptions, new_policy). The input
@@ -46,10 +45,7 @@ def apply_patches(
         target = row["target"]
         op = row["operation"]
         # Build a boolean mask for matching dimension values
-        if target == "assumptions":
-            base = assumptions
-        else:
-            base = policy
+        base = assumptions if target == "assumptions" else policy
         mask = pd.Series(True, index=base.index)
         for c in DIM_COLS:
             val = row[c]
@@ -65,12 +61,13 @@ def apply_patches(
                 base.loc[matches.index, "value"] = row["value"]
             else:
                 # if no match, append a new row with dimension values and value
-                new_row = {**{c: row[c] for c in base.columns if c in DIM_COLS},
-                           "value": row["value"],
-                           "unit": row["unit"],
-                           # include param in assumptions and policy row if not None
-                           "param": row.get("param"),
-                           }
+                new_row = {
+                    **{c: row[c] for c in base.columns if c in DIM_COLS},
+                    "value": row["value"],
+                    "unit": row["unit"],
+                    # include param in assumptions and policy row if not None
+                    "param": row.get("param"),
+                }
                 # ensure all columns present in the new row
                 for col in base.columns:
                     if col not in new_row:

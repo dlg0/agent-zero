@@ -8,16 +8,14 @@ a history list.
 
 from __future__ import annotations
 
-from typing import List, Tuple
-
-from ..utils.types import WorldState, AgentState, Action
+from ..utils.types import Action, AgentState, WorldState
 from .decisions import decide
 from .markets import clear_markets
 
 
 def step(
-    world: WorldState, agents: List[AgentState]
-) -> Tuple[WorldState, List[AgentState], List[Action]]:
+    world: WorldState, agents: list[AgentState]
+) -> tuple[WorldState, list[AgentState], list[Action]]:
     """Perform one simulation step.
 
     1. Each agent decides on an action given the current world state.
@@ -27,13 +25,13 @@ def step(
     5. The time is advanced by one year.
     """
     # 1. Agent decisions
-    actions: List[Action] = [decide(a, world) for a in agents]
+    actions: list[Action] = [decide(a, world) for a in agents]
 
     # 2. Market clearing
     world2 = clear_markets(world, actions)
 
     # 3. Update agent capacities with their investments
-    updated_agents: List[AgentState] = []
+    updated_agents: list[AgentState] = []
     for ag in agents:
         act = next((x for x in actions if x.agent_id == ag.id), None)
         if act and ag.agent_type in ("ElectricityProducer", "HydrogenProducer"):
@@ -68,8 +66,8 @@ def step(
 
 
 def simulate(
-    world0: WorldState, agents0: List[AgentState], years: List[int]
-) -> List[Tuple[WorldState, List[AgentState], List[Action]]]:
+    world0: WorldState, agents0: list[AgentState], years: list[int]
+) -> list[tuple[WorldState, list[AgentState], list[Action]]]:
     """Run the simulation over a list of years.
 
     Returns a history list where each element contains the world
@@ -77,7 +75,7 @@ def simulate(
     """
     world = world0
     agents = agents0
-    history: List[Tuple[WorldState, List[AgentState], List[Action]]] = []
+    history: list[tuple[WorldState, list[AgentState], list[Action]]] = []
     for _ in years:
         world, agents, actions = step(world, agents)
         history.append((world, agents, actions))
