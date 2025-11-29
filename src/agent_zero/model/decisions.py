@@ -8,11 +8,10 @@ directly act; its role is managed by the market clearing step.
 
 from __future__ import annotations
 
-from typing import List
 import numpy as np
 import pandas as pd
 
-from ..utils.types import AgentState, WorldState, Action
+from ..utils.types import Action, AgentState, WorldState
 
 
 def _lookup_param(
@@ -29,7 +28,7 @@ def _lookup_param(
     return default
 
 
-def _forecast_prices(current: float, trend_param: float, horizon: int) -> List[float]:
+def _forecast_prices(current: float, trend_param: float, horizon: int) -> list[float]:
     """Forecast future prices using a linear trend."""
     return [current * (1 + trend_param * (y / horizon)) for y in range(1, horizon + 1)]
 
@@ -37,7 +36,7 @@ def _forecast_prices(current: float, trend_param: float, horizon: int) -> List[f
 def _compute_npv(
     capex: float,
     opex: float,
-    price_forecast: List[float],
+    price_forecast: list[float],
     emissions_intensity: float,
     carbon_price: float,
     discount_rate: float,
@@ -109,8 +108,8 @@ def decide(agent: AgentState, world: WorldState) -> Action:
             "demand_low",
             0.8 * world.demand.get("electricity", 100.0),
         )
-        consumption = d_hi if prices["electricity"] < ref_price else d_lo
-        # consumption is modelled as negative supply
+        _consumption = d_hi if prices["electricity"] < ref_price else d_lo
+        # _consumption is modelled as negative supply (reserved for future use)
         return Action(
             agent_id=agent.id,
             supply={},

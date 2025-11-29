@@ -1,0 +1,7 @@
+id: "tiny-scenario"
+type: "scenario"
+version: "1.0.0"
+created: "2025-01-01"
+base_assumptions_id: "tiny-baseline"
+description: "Minimal test scenario pack for unit tests"
+hash: "test"

@@ -8,8 +8,6 @@ introduced in future versions.
 
 from __future__ import annotations
 
-from typing import List
-from pathlib import Path
 import pandas as pd
 
 # Required columns for assumptions and policy tables
@@ -32,13 +30,13 @@ ALLOWED_PATCH_OPS = {"replace", "scale", "add"}
 ALLOWED_PATCH_TARGETS = {"assumptions", "policy"}
 
 
-def validate_assumptions_pack(pack: dict) -> List[str]:
+def validate_assumptions_pack(pack: dict) -> list[str]:
     """Validate an assumptions pack.
 
     Returns a list of error messages; an empty list indicates success.
     Only basic column presence and missing unit checks are performed.
     """
-    errs: List[str] = []
+    errs: list[str] = []
     assumptions: pd.DataFrame = pack["assumptions"]
     policy: pd.DataFrame = pack["policy"]
 
@@ -55,13 +53,13 @@ def validate_assumptions_pack(pack: dict) -> List[str]:
     return errs
 
 
-def validate_scenario_pack(pack: dict) -> List[str]:
+def validate_scenario_pack(pack: dict) -> list[str]:
     """Validate a scenario pack.
 
     Returns a list of error messages; an empty list indicates success.
     Checks for required columns and allowed operations and targets.
     """
-    errs: List[str] = []
+    errs: list[str] = []
     patches: pd.DataFrame = pack["patches"]
     missing_patch_cols = REQ_PATCH_COLS - set(patches.columns)
     if missing_patch_cols:

@@ -1,0 +1,8 @@
+region,sector,tech,year,param,value,unit,uncertainty_band
+AUS,,electricity,2025,capex,1000.0,AUD_2024/kW,mean
+AUS,,electricity,2025,opex,10.0,AUD_2024/kWh,mean
+AUS,,electricity,2025,demand,100.0,MW,mean
+AUS,,electricity,2025,initial_capacity,50.0,MW,mean
+AUS,,hydrogen,2025,capex,800.0,AUD_2024/kW,mean
+AUS,,hydrogen,2025,demand,10.0,MW,mean
+AUS,,hydrogen,2025,initial_capacity,5.0,MW,mean

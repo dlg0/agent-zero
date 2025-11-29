@@ -13,20 +13,19 @@ default value is used.
 
 from __future__ import annotations
 
-from typing import List
 import pandas as pd
 
 from ..utils.types import AgentState
 
 
-def init_agents(assumptions: pd.DataFrame, start_year: int) -> List[AgentState]:
+def init_agents(assumptions: pd.DataFrame, start_year: int) -> list[AgentState]:
     """Initialise the agent state list.
 
     Reads initial capacities from the assumptions table. If not
     specified, defaults of 100 for electricity and 10 for hydrogen are
     used. All agents are created in region 'AUS'.
     """
-    agents: List[AgentState] = []
+    agents: list[AgentState] = []
 
     # helper to lookup parameters at start year using boolean indexing
     def get_param(tech: str, param: str, default: float) -> float:

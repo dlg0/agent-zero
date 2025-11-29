@@ -1,0 +1,3 @@
+region,sector,year,policy_type,value,unit
+AUS,,2025,carbon_price,0.0,AUD_2024/tCO2
+AUS,,2026,carbon_price,10.0,AUD_2024/tCO2

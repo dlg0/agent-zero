@@ -7,7 +7,8 @@ state of each agent, and the actions chosen by agents each timestep.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Dict, Optional, List, Any
+from typing import Any
+
 import pandas as pd
 
 
@@ -16,11 +17,11 @@ class WorldState:
     """Shared world state visible to all agents and the simulation engine."""
 
     t: int
-    prices: Dict[str, float]
-    demand: Dict[str, float]
+    prices: dict[str, float]
+    demand: dict[str, float]
     policy: pd.DataFrame
     assumptions: pd.DataFrame
-    flows: Dict[str, float] = field(default_factory=dict)
+    flows: dict[str, float] = field(default_factory=dict)
     emissions: float = 0.0
 
 
@@ -31,13 +32,13 @@ class AgentState:
     id: str
     agent_type: str
     region: str
-    sector: Optional[str] = None
-    tech: Optional[str] = None
+    sector: str | None = None
+    tech: str | None = None
     capacity: float = 0.0
     vintage: int = 0
     cash: float = 0.0
     horizon: int = 1
-    params: Dict[str, Any] = field(default_factory=dict)
+    params: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -45,7 +46,7 @@ class Action:
     """Action chosen by an agent at a timestep."""
 
     agent_id: str
-    supply: Dict[str, float]
-    invest: Dict[str, float]
-    retire: Dict[str, float]
+    supply: dict[str, float]
+    invest: dict[str, float]
+    retire: dict[str, float]
     emissions: float
