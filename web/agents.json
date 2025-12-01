@@ -1,0 +1,54 @@
+[
+  {
+    "agent_id": "EGEN1",
+    "agent_type": "ElectricityProducer",
+    "region": "AUS",
+    "sector": null,
+    "tech": "electricity",
+    "initial_capacity": 100.0,
+    "horizon": 3,
+    "discount_rate": 0.07,
+    "decision_rule": "npv_threshold",
+    "vintage": 2025,
+    "params": {}
+  },
+  {
+    "agent_id": "H2GEN1",
+    "agent_type": "HydrogenProducer",
+    "region": "AUS",
+    "sector": null,
+    "tech": "hydrogen",
+    "initial_capacity": 10.0,
+    "horizon": 3,
+    "discount_rate": 0.07,
+    "decision_rule": "npv_threshold",
+    "vintage": 2025,
+    "params": {}
+  },
+  {
+    "agent_id": "IND1",
+    "agent_type": "IndustrialConsumer",
+    "region": "AUS",
+    "sector": "Industry",
+    "tech": null,
+    "initial_capacity": 0.0,
+    "horizon": 1,
+    "discount_rate": 0.07,
+    "decision_rule": "npv_threshold",
+    "vintage": 0,
+    "params": {}
+  },
+  {
+    "agent_id": "REG",
+    "agent_type": "Regulator",
+    "region": "AUS",
+    "sector": null,
+    "tech": null,
+    "initial_capacity": 0.0,
+    "horizon": 1,
+    "discount_rate": 0.07,
+    "decision_rule": "npv_threshold",
+    "vintage": 0,
+    "params": {}
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "baseline_run_id": "run_a1c2e3f4",
+  "key_differences": [
+    {
+      "metric": "cumulative_emissions",
+      "baseline_value": 3700000000,
+      "scenario_value": 3250000000,
+      "delta": -450000000,
+      "delta_percent": -12.2,
+      "interpretation": "The high ambition scenario reduces cumulative emissions by 450 Mt CO2e (12%) compared to baseline"
+    },
+    {
+      "metric": "year_net_zero",
+      "baseline_value": 0,
+      "scenario_value": 2048,
+      "delta": 2048,
+      "delta_percent": 100,
+      "interpretation": "The scenario achieves net-zero by 2048, whereas baseline never reaches net-zero within the simulation period"
+    },
+    {
+      "metric": "total_investment",
+      "baseline_value": 10000000000,
+      "scenario_value": 12500000000,
+      "delta": 2500000000,
+      "delta_percent": 25,
+      "interpretation": "Achieving the emissions reduction requires 25% more capital investment ($2.5B additional)"
+    },
+    {
+      "metric": "average_electricity_price",
+      "baseline_value": 70.5,
+      "scenario_value": 65.5,
+      "delta": -5.0,
+      "delta_percent": -7.1,
+      "interpretation": "Despite higher investment, average electricity prices are 7% lower due to cheaper renewable generation"
+    }
+  ],
+  "assumption_changes": [
+    {
+      "param": "carbon_price",
+      "region": null,
+      "baseline": 50,
+      "scenario": 100,
+      "rationale": "High ambition carbon pricing pathway aligned with 1.5°C target"
+    },
+    {
+      "param": "capex_hydrogen",
+      "region": null,
+      "baseline": 2500,
+      "scenario": 1800,
+      "rationale": "Accelerated electrolyser cost reduction from manufacturing scale-up"
+    },
+    {
+      "param": "demand_growth",
+      "region": "AUS",
+      "baseline": 0.02,
+      "scenario": 0.04,
+      "rationale": "High industrial electrification scenario"
+    }
+  ]
+}

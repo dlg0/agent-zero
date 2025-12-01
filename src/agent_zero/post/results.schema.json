@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "timeseries": {
+    "required_columns": {
+      "year": "int",
+      "region": "str",
+      "commodity": "str",
+      "price": "float",
+      "demand": "float",
+      "supply": "float",
+      "emissions": "float",
+      "scenario_id": "str_or_null",
+      "assumptions_id": "str",
+      "run_id": "str"
+    },
+    "constraints": {
+      "price": {"min": 0},
+      "demand": {"min": 0},
+      "supply": {"min": 0}
+    },
+    "warnings": {
+      "emissions": {"note": "Negative values allowed for CCS scenarios but flagged"}
+    }
+  },
+  "agent_states": {
+    "required_columns": {
+      "year": "int",
+      "agent_id": "str",
+      "agent_type": "str",
+      "region": "str",
+      "capacity": "float",
+      "investment": "float",
+      "expected_price": "float_or_null",
+      "other_state_vars": "str",
+      "action": "str",
+      "action_inputs": "str_or_null",
+      "state_before": "str_or_null",
+      "state_after": "str_or_null"
+    },
+    "constraints": {
+      "capacity": {"min": 0},
+      "investment": {"min": 0}
+    }
+  },
+  "summary": {
+    "required_fields": {
+      "run_id": "str",
+      "created": "str",
+      "cumulative_emissions": "float",
+      "average_prices": "object",
+      "investment_totals": "object",
+      "peak_capacity": "object",
+      "peak_emissions": "float",
+      "year_net_zero": "int_or_null",
+      "security_of_supply": "object"
+    }
+  },
+  "manifest": {
+    "required_fields": {
+      "run_id": "str",
+      "run_timestamp": "str",
+      "engine_version": "str",
+      "seed": "int_or_null",
+      "years": "list",
+      "assumptions": "object_or_null",
+      "scenario": "object_or_null",
+      "schema_versions": "object",
+      "units": "object"
+    }
+  }
+}

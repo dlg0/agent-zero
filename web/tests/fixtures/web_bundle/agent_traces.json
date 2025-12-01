@@ -1,0 +1,3 @@
+[
+  { "agent_id": "solar-aus-1", "year": 2025, "action": "invest", "action_inputs": { "current_price": 50.0, "expected_price": 55.0, "npv": 1000000, "capacity_headroom": 500, "carbon_price": 25.0 }, "state_before": { "capacity": 100, "cash": 0, "vintage": 2020 }, "state_after": { "capacity": 150, "cash": 0, "vintage": 2020, "investment": 50, "supply": { "electricity": 800 }, "emissions": 0 } }
+]

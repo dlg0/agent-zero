@@ -76,6 +76,19 @@ uv run pytest tests/unit -x                         # Unit tests, stop on first 
 
 ---
 
+## Branching Workflow (humans and agents)
+
+- **Start all work from a new branch, not `main`:**
+  ```bash
+  git checkout main
+  git pull origin main
+  git checkout -b <branch-name>
+  ```
+- **All changes must go through a PR into `main`** — no direct pushes, even for small fixes.
+- **`main` is only updated by merging PRs after CI passes** and the branch is up-to-date with `main`.
+
+---
+
 ## Branch Protection
 
 This repository uses branch protection on `main`:

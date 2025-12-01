@@ -1,0 +1,33 @@
+{
+  "total_emissions": {
+    "value": 125000000,
+    "unit": "tCO2e",
+    "trend": "down",
+    "delta_percent": -12.2
+  },
+  "cumulative_emissions": {
+    "value": 3250000000,
+    "unit": "tCO2e"
+  },
+  "peak_capacity": {
+    "value": 18000,
+    "unit": "MW",
+    "year": 2045
+  },
+  "total_investment": {
+    "value": 12500000000,
+    "unit": "USD"
+  },
+  "average_price": [
+    {
+      "commodity": "electricity",
+      "value": 65.5,
+      "unit": "USD/MWh"
+    },
+    {
+      "commodity": "hydrogen",
+      "value": 3.2,
+      "unit": "USD/kg"
+    }
+  ]
+}

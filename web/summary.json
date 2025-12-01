@@ -1,0 +1,36 @@
+{
+  "run_id": "eaf7ac6e2c8c",
+  "created": "2025-11-30T21:15:03.387295+00:00",
+  "cumulative_emissions": 51.0,
+  "average_prices": {
+    "electricity": 50.0,
+    "hydrogen": 3.0
+  },
+  "investment_totals": {
+    "total": 0.0,
+    "by_agent_type": {
+      "ElectricityProducer": 0.0,
+      "HydrogenProducer": 0.0,
+      "IndustrialConsumer": 0.0,
+      "Regulator": 0.0
+    }
+  },
+  "peak_capacity": {
+    "ElectricityProducer": 100.0,
+    "HydrogenProducer": 10.0,
+    "IndustrialConsumer": 0.0,
+    "Regulator": 0.0
+  },
+  "peak_emissions": 51.0,
+  "year_net_zero": 2027,
+  "security_of_supply": {
+    "electricity": {
+      "shortage_frequency": 0.0,
+      "min_supply_demand_ratio": 1.0
+    },
+    "hydrogen": {
+      "shortage_frequency": 0.0,
+      "min_supply_demand_ratio": 1.0
+    }
+  }
+}

@@ -8,6 +8,8 @@ directly act; its role is managed by the market clearing step.
 
 from __future__ import annotations
 
+from typing import Any
+
 import numpy as np
 import pandas as pd
 
@@ -56,9 +58,14 @@ def decide(agent: AgentState, world: WorldState) -> Action:
     t = world.t
     assumptions = world.assumptions
     prices = world.prices
+    action_inputs: dict[str, Any]
     # Regulator does nothing; carbon price is handled in market step
     if agent.agent_type == "Regulator":
-        return Action(agent.id, {}, {}, {}, 0.0)
+        action_inputs = {
+            "carbon_price": prices.get("carbon", 0.0),
+            "year": t,
+        }
+        return Action(agent.id, {}, {}, {}, 0.0, expected_price=None, action_inputs=action_inputs)
 
     if agent.agent_type in ("ElectricityProducer", "HydrogenProducer"):
         tech = agent.tech or ""
@@ -83,12 +90,27 @@ def decide(agent: AgentState, world: WorldState) -> Action:
 
         supply_amt = agent.capacity  # supply equals existing capacity in v1
         emissions = supply_amt * ei
+        expected_price = float(np.mean(price_forecast))
+        action_inputs = {
+            "prices": dict(prices),
+            "capacity": agent.capacity,
+            "costs": {"capex": capex, "opex": opex},
+            "horizon": H,
+            "discount_rate": dr,
+            "npv": npv,
+            "invest_threshold": invest_threshold,
+            "max_capacity": maxcap,
+            "emissions_intensity": ei,
+            "carbon_price": prices.get("carbon", 0.0),
+        }
         return Action(
             agent_id=agent.id,
             supply={tech: supply_amt},
             invest={tech: invest_amt},
             retire={tech: 0.0},
             emissions=emissions,
+            expected_price=expected_price,
+            action_inputs=action_inputs,
         )
 
     if agent.agent_type == "IndustrialConsumer":
@@ -108,14 +130,24 @@ def decide(agent: AgentState, world: WorldState) -> Action:
             "demand_low",
             0.8 * world.demand.get("electricity", 100.0),
         )
-        _consumption = d_hi if prices["electricity"] < ref_price else d_lo
-        # _consumption is modelled as negative supply (reserved for future use)
+        consumption = d_hi if prices["electricity"] < ref_price else d_lo
+        action_inputs = {
+            "demand": dict(world.demand),
+            "ref_price": ref_price,
+            "demand_high": d_hi,
+            "demand_low": d_lo,
+            "electricity_price": prices.get("electricity", 0.0),
+            "consumption": consumption,
+        }
+        # consumption is modelled as negative supply (reserved for future use)
         return Action(
             agent_id=agent.id,
             supply={},
             invest={},
             retire={},
             emissions=0.0,
+            expected_price=None,
+            action_inputs=action_inputs,
         )
 
     raise ValueError(f"Unknown agent type {agent.agent_type}")

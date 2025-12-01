@@ -1,0 +1,56 @@
+[
+  {
+    "factor": "carbon_price",
+    "contribution": 0.35,
+    "direction": "positive",
+    "explanation": "Rising carbon prices from $25/t in 2024 to $150/t by 2050 drove accelerated retirement of high-emission assets and triggered investment in low-carbon alternatives.",
+    "evidence": [
+      "Carbon price increased 6x over simulation period",
+      "Electricity producer retirements peaked in 2035 when carbon price exceeded $75/t",
+      "Hydrogen investment began 2028 when NPV turned positive"
+    ]
+  },
+  {
+    "factor": "capex_reduction",
+    "contribution": 0.25,
+    "direction": "positive",
+    "explanation": "50% reduction in hydrogen production CAPEX enabled economic viability of green hydrogen by 2030, triggering a wave of investment.",
+    "evidence": [
+      "Electrolyser CAPEX fell from $2500/kW to $1250/kW",
+      "First profitable hydrogen project commissioned 2030",
+      "Hydrogen capacity grew 15x between 2030-2045"
+    ]
+  },
+  {
+    "factor": "demand_growth",
+    "contribution": 0.20,
+    "direction": "negative",
+    "explanation": "Higher than expected industrial electricity demand increased overall system emissions despite supply-side decarbonisation.",
+    "evidence": [
+      "Industrial demand grew 4% annually vs 2% baseline",
+      "Peak demand reached 280 GWh vs 250 GWh in baseline",
+      "Supply-demand gap widened in 2035-2040 period"
+    ]
+  },
+  {
+    "factor": "investment_behaviour",
+    "contribution": 0.15,
+    "direction": "negative",
+    "explanation": "Agent investment thresholds led to lumpy capacity additions, creating periodic supply-demand mismatches and price volatility.",
+    "evidence": [
+      "Investment clustered in 3-year cycles",
+      "Price spikes observed in 2028, 2035, 2042",
+      "Capacity additions lagged demand by 2-3 years"
+    ]
+  },
+  {
+    "factor": "technology_learning",
+    "contribution": 0.05,
+    "direction": "positive",
+    "explanation": "Learning-by-doing effects reduced operating costs over time, improving project economics for early movers.",
+    "evidence": [
+      "O&M costs fell 20% between 2024-2040",
+      "Capacity factors improved from 85% to 92%"
+    ]
+  }
+]

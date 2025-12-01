@@ -16,7 +16,7 @@ def test_cli_help() -> None:
     runner = CliRunner()
     result = runner.invoke(main, ["--help"])
     assert result.exit_code == 0
-    assert "AgentZero command line interface" in result.output
+    assert "AgentZero:" in result.output
     assert "validate" in result.output
     assert "runs" in result.output
 
@@ -28,7 +28,7 @@ def test_validate_command_assumptions_pack(data_dir: Path) -> None:
     pack_path = data_dir / "assumptions_packs" / "baseline-v1"
     result = runner.invoke(main, ["validate", str(pack_path)])
     assert result.exit_code == 0
-    assert "OK" in result.output
+    assert "Pack is valid" in result.output
 
 
 @pytest.mark.e2e
@@ -38,7 +38,7 @@ def test_validate_command_scenario_pack(data_dir: Path) -> None:
     pack_path = data_dir / "scenario_packs" / "fast-elec-v1"
     result = runner.invoke(main, ["validate", str(pack_path)])
     assert result.exit_code == 0
-    assert "OK" in result.output
+    assert "Pack is valid" in result.output
 
 
 @pytest.mark.e2e
@@ -48,4 +48,4 @@ def test_runs_command_no_runs(repo_root: Path) -> None:
     with runner.isolated_filesystem():
         result = runner.invoke(main, ["runs"])
         assert result.exit_code == 0
-        assert "No runs/ directory yet" in result.output
+        assert "No runs directory found" in result.output

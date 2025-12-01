@@ -1,0 +1,528 @@
+@import 'tailwindcss';
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AGENT ZERO — Command Center Design System
+   A professional, authoritative interface that conveys trust & precision
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Primary: Deep Navy — Authority, stability, trust */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #1e3a5f;
+  --color-primary-600: #172d4d;
+  --color-primary-700: #0f1f35;
+  --color-primary-800: #0a1628;
+  --color-primary-900: #050c16;
+  --color-primary-950: #020609;
+
+  /* Accent: Electric Teal — Precision, data, insight */
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488;
+  --color-accent-700: #0f766e;
+
+  /* Signal: Emerald — Success, verified, approved */
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  /* Signal: Amber — Warning, attention needed */
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  /* Signal: Red — Error, critical */
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  /* Typography — Inter for UI, JetBrains Mono for data */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+
+  /* Semantic Colors — Light Mode */
+  --color-bg: #f8fafc;
+  --color-bg-muted: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-border-subtle: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+  --color-nav: rgba(255, 255, 255, 0.95);
+  --color-footer: #f8fafc;
+  
+  /* Data Visualization Palette */
+  --color-data-1: #14b8a6;
+  --color-data-2: #3b82f6;
+  --color-data-3: #8b5cf6;
+  --color-data-4: #f59e0b;
+  --color-data-5: #ef4444;
+  --color-data-6: #22c55e;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+    
+    --color-bg: #0a0f1a;
+    --color-bg-muted: #111827;
+    --color-surface: #1a2332;
+    --color-surface-muted: #0f1729;
+    --color-surface-elevated: #1f2d40;
+    --color-border-subtle: #2d3f52;
+    --color-border-strong: #3d5166;
+    --color-foreground: #f1f5f9;
+    --color-muted: #94a3b8;
+    --color-nav: rgba(10, 15, 26, 0.95);
+    --color-footer: #0f1729;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    font-family: var(--font-sans);
+    @apply bg-bg text-foreground antialiased;
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+  }
+
+  /* Typography Scale */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  /* ═══════════════════════════════════════════════════════════════════════
+     COMMAND BAR — Top accent line for authority
+     ═══════════════════════════════════════════════════════════════════════ */
+  .command-bar {
+    height: 3px;
+    background: linear-gradient(90deg, 
+      var(--color-accent-500) 0%, 
+      var(--color-accent-400) 50%,
+      var(--color-accent-500) 100%
+    );
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     STATUS INDICATOR — Precision dot for system status
+     ═══════════════════════════════════════════════════════════════════════ */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  
+  .status-dot-active {
+    @apply bg-success-500;
+    box-shadow: 0 0 8px var(--color-success-500);
+  }
+
+  .status-dot-warning {
+    @apply bg-warning-500;
+    box-shadow: 0 0 8px var(--color-warning-500);
+  }
+
+  .status-dot-error {
+    @apply bg-error-500;
+    box-shadow: 0 0 8px var(--color-error-500);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     CARD SYSTEM — Clean, professional containers
+     ═══════════════════════════════════════════════════════════════════════ */
+  .card {
+    @apply bg-surface border border-border-subtle rounded-lg;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    @apply border-accent-500/40;
+    box-shadow: 0 0 0 1px var(--color-accent-500), 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  :root.dark .card:hover {
+    box-shadow: 0 0 0 1px var(--color-accent-500), 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-elevated {
+    @apply bg-surface-elevated border border-border-subtle rounded-lg shadow-sm;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     DATA PANEL — For displaying metrics & KPIs
+     ═══════════════════════════════════════════════════════════════════════ */
+  .data-panel {
+    @apply bg-surface border border-border-subtle rounded-lg p-4;
+    position: relative;
+  }
+
+  .data-panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-accent-500);
+    border-radius: 3px 0 0 3px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .data-panel:hover::before {
+    opacity: 1;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     METRIC DISPLAY — Large numbers for KPIs
+     ═══════════════════════════════════════════════════════════════════════ */
+  .metric-value {
+    @apply text-3xl font-semibold tracking-tight;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono);
+  }
+
+  .metric-label {
+    @apply text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .metric-delta {
+    @apply text-sm font-medium;
+    font-family: var(--font-mono);
+  }
+
+  .metric-delta-positive {
+    @apply text-success-500;
+  }
+
+  .metric-delta-negative {
+    @apply text-error-500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     BUTTONS — Professional, understated interactions
+     ═══════════════════════════════════════════════════════════════════════ */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-4 py-2.5 rounded-md font-medium text-sm;
+    @apply bg-accent-500 text-white;
+    @apply transition-all duration-200;
+    @apply hover:bg-accent-600;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  :root.dark .btn-primary {
+    @apply focus:ring-offset-primary-900;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-4 py-2.5 rounded-md font-medium text-sm;
+    @apply bg-surface border border-border-subtle text-foreground;
+    @apply transition-all duration-200;
+    @apply hover:border-accent-500/50 hover:bg-surface-muted;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-4 py-2.5 rounded-md font-medium text-sm;
+    @apply text-muted;
+    @apply transition-all duration-200;
+    @apply hover:text-foreground hover:bg-surface-muted;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     NAVIGATION — Clean, hierarchical nav
+     ═══════════════════════════════════════════════════════════════════════ */
+  .nav-link {
+    @apply relative px-3 py-2 text-sm font-medium rounded-md;
+    @apply text-muted transition-colors duration-200;
+    @apply hover:text-foreground hover:bg-surface-muted;
+  }
+
+  .nav-link-active {
+    @apply text-foreground bg-accent-500/10;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: var(--color-accent-500);
+    border-radius: 1px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     BADGE SYSTEM — Status & category indicators
+     ═══════════════════════════════════════════════════════════════════════ */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5;
+    @apply text-xs font-medium rounded;
+  }
+
+  .badge-default {
+    @apply bg-muted/10 text-muted border border-border-subtle;
+  }
+
+  .badge-accent {
+    @apply bg-accent-500/10 text-accent-600 border border-accent-500/20;
+  }
+
+  :root.dark .badge-accent {
+    @apply text-accent-400;
+  }
+
+  .badge-success {
+    @apply bg-success-500/10 text-success-600 border border-success-500/20;
+  }
+
+  :root.dark .badge-success {
+    @apply text-success-400;
+  }
+
+  .badge-warning {
+    @apply bg-warning-500/10 text-warning-600 border border-warning-500/20;
+  }
+
+  :root.dark .badge-warning {
+    @apply text-warning-400;
+  }
+
+  .badge-error {
+    @apply bg-error-500/10 text-error-600 border border-error-500/20;
+  }
+
+  :root.dark .badge-error {
+    @apply text-error-400;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     TABLE — Professional data tables
+     ═══════════════════════════════════════════════════════════════════════ */
+  .table-pro {
+    @apply w-full text-sm;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .table-pro th {
+    @apply px-4 py-3 text-left font-semibold text-xs uppercase tracking-wider;
+    @apply text-muted bg-bg-muted border-b border-border-subtle;
+  }
+
+  .table-pro td {
+    @apply px-4 py-3 border-b border-border-subtle;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .table-pro tbody tr {
+    @apply transition-colors duration-150;
+  }
+
+  .table-pro tbody tr:hover {
+    @apply bg-accent-500/5;
+  }
+
+  .table-pro tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     INPUT — Clean form controls
+     ═══════════════════════════════════════════════════════════════════════ */
+  .input {
+    @apply w-full px-3 py-2 text-sm rounded-md;
+    @apply bg-surface border border-border-subtle text-foreground;
+    @apply placeholder:text-muted;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500;
+  }
+
+  .input-search {
+    @apply w-full px-3 py-2 text-sm rounded-md pl-10;
+    @apply bg-surface border border-border-subtle text-foreground;
+    @apply placeholder:text-muted;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     TOOLTIP — Informational overlays
+     ═══════════════════════════════════════════════════════════════════════ */
+  .tooltip {
+    @apply absolute z-50 px-2 py-1 text-xs font-medium rounded;
+    @apply bg-foreground text-bg shadow-lg;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     LOADING STATES — Minimal, professional spinners
+     ═══════════════════════════════════════════════════════════════════════ */
+  .spinner {
+    @apply inline-block w-5 h-5 border-2 rounded-full;
+    @apply border-border-subtle border-t-accent-500;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .skeleton {
+    @apply bg-border-subtle rounded animate-pulse;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     SECTION DIVIDERS — Visual hierarchy
+     ═══════════════════════════════════════════════════════════════════════ */
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted mb-3;
+    @apply flex items-center gap-2;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply flex-1 h-px bg-border-subtle;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     SCROLLBAR — Minimal, professional
+     ═══════════════════════════════════════════════════════════════════════ */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     FOCUS RING — Accessible focus states
+     ═══════════════════════════════════════════════════════════════════════ */
+  .focus-ring:focus {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2;
+  }
+
+  :root.dark .focus-ring:focus {
+    @apply ring-offset-primary-900;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     CODE BLOCKS — Technical data display
+     ═══════════════════════════════════════════════════════════════════════ */
+  .code-inline {
+    @apply px-1.5 py-0.5 rounded text-sm;
+    @apply bg-bg-muted text-accent-600 font-mono;
+  }
+
+  :root.dark .code-inline {
+    @apply text-accent-400;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     CHART CONTAINER — For data visualizations
+     ═══════════════════════════════════════════════════════════════════════ */
+  .chart-container {
+    @apply relative p-4 bg-surface border border-border-subtle rounded-lg;
+  }
+
+  .chart-title {
+    @apply text-sm font-semibold text-foreground mb-4;
+  }
+
+  .chart-legend {
+    @apply flex flex-wrap gap-4 mt-4 pt-4 border-t border-border-subtle;
+  }
+
+  .chart-legend-item {
+    @apply flex items-center gap-2 text-xs text-muted;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     EMPTY STATE — Professional placeholder content
+     ═══════════════════════════════════════════════════════════════════════ */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-center;
+  }
+
+  .empty-state-icon {
+    @apply w-12 h-12 text-border-strong mb-4;
+  }
+
+  .empty-state-title {
+    @apply text-lg font-semibold text-foreground mb-2;
+  }
+
+  .empty-state-description {
+    @apply text-sm text-muted max-w-sm;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     GLASS PANEL — Subtle depth for overlays
+     ═══════════════════════════════════════════════════════════════════════ */
+  .glass {
+    @apply bg-surface/90 backdrop-blur-md;
+    @apply border border-border-subtle;
+  }
+
+  :root.dark .glass {
+    @apply bg-surface/80;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     ANIMATION — Subtle, professional motion
+     ═══════════════════════════════════════════════════════════════════════ */
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     GRADIENT TEXT — For key headlines only
+     ═══════════════════════════════════════════════════════════════════════ */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-foreground) 0%, var(--color-accent-500) 100%);
+  }
+}

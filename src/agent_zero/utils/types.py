@@ -50,3 +50,7 @@ class Action:
     invest: dict[str, float]
     retire: dict[str, float]
     emissions: float
+    expected_price: float | None = None
+    action_inputs: dict[str, Any] | None = None
+    state_before: dict[str, Any] | None = None
+    state_after: dict[str, Any] | None = None

@@ -8,9 +8,28 @@ a history list.
 
 from __future__ import annotations
 
+from dataclasses import replace
+from typing import Any
+
 from ..utils.types import Action, AgentState, WorldState
 from .decisions import decide
 from .markets import clear_markets
+
+
+def _agent_to_dict(agent: AgentState) -> dict[str, Any]:
+    """Convert an AgentState to a dict for state capture."""
+    return {
+        "id": agent.id,
+        "agent_type": agent.agent_type,
+        "region": agent.region,
+        "sector": agent.sector,
+        "tech": agent.tech,
+        "capacity": agent.capacity,
+        "vintage": agent.vintage,
+        "cash": agent.cash,
+        "horizon": agent.horizon,
+        "params": dict(agent.params) if agent.params else {},
+    }
 
 
 def step(
@@ -24,6 +43,9 @@ def step(
     4. Demand for the next year is updated from assumptions, if available.
     5. The time is advanced by one year.
     """
+    # Capture state_before for each agent
+    states_before: dict[str, dict[str, Any]] = {ag.id: _agent_to_dict(ag) for ag in agents}
+
     # 1. Agent decisions
     actions: list[Action] = [decide(a, world) for a in agents]
 
@@ -38,6 +60,14 @@ def step(
             tech = ag.tech or ""
             ag.capacity += act.invest.get(tech, 0.0)
         updated_agents.append(ag)
+
+    # Capture state_after and attach to actions
+    actions_with_traces: list[Action] = []
+    for act in actions:
+        state_before = states_before.get(act.agent_id)
+        agent_after = next((a for a in updated_agents if a.id == act.agent_id), None)
+        state_after = _agent_to_dict(agent_after) if agent_after else None
+        actions_with_traces.append(replace(act, state_before=state_before, state_after=state_after))
 
     # 4. Update demand for next year from assumptions, if specified
     t_next = world2.t + 1
@@ -62,7 +92,7 @@ def step(
         emissions=world2.emissions,
     )
 
-    return world3, updated_agents, actions
+    return world3, updated_agents, actions_with_traces
 
 
 def simulate(

@@ -1,0 +1,11 @@
+{
+  "run_id": "run_b3f7a2c1",
+  "audience": "technical",
+  "scenario_name": "high_ambition_2050",
+  "baseline_name": "baseline_v1.0",
+  "years": {
+    "start": 2024,
+    "end": 2050
+  },
+  "is_scenario_run": true
+}

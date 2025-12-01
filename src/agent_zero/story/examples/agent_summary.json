@@ -1,0 +1,45 @@
+{
+  "total_agents": 45,
+  "by_type": [
+    {
+      "type": "ElectricityProducer",
+      "count": 20,
+      "invest_count": 12,
+      "retire_count": 5,
+      "hold_count": 3,
+      "total_capacity_change": 8500
+    },
+    {
+      "type": "HydrogenProducer",
+      "count": 10,
+      "invest_count": 8,
+      "retire_count": 0,
+      "hold_count": 2,
+      "total_capacity_change": 3200
+    },
+    {
+      "type": "IndustrialConsumer",
+      "count": 12,
+      "invest_count": 0,
+      "retire_count": 0,
+      "hold_count": 12,
+      "total_capacity_change": 0
+    },
+    {
+      "type": "Regulator",
+      "count": 3,
+      "invest_count": 0,
+      "retire_count": 0,
+      "hold_count": 3,
+      "total_capacity_change": 0
+    }
+  ],
+  "dominant_behaviour": "Heavy investment in electricity and hydrogen production capacity",
+  "notable_patterns": [
+    "Early adopters began investing from 2025, ahead of policy signals",
+    "Hydrogen producers showed highest investment rate (80% of agents invested)",
+    "Electricity retirements clustered around 2035 when carbon prices exceeded $75/t",
+    "Industrial consumers maintained stable demand patterns throughout",
+    "No hydrogen producer retired - all capacity additions were net new"
+  ]
+}

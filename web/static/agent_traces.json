@@ -1,0 +1,626 @@
+[
+  {
+    "agent_id": "EGEN1",
+    "year": 2026,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.666666666666664,
+      "npv": -693.3172413811869,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 50.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2026,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0199999999999996,
+      "npv": -842.2283245679939,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 1.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2026,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2026,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "EGEN1",
+    "year": 2027,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.0,
+      "npv": -895.027358223344,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2027,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0,
+      "npv": -1018.3702123109148,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2027,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2027,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "EGEN1",
+    "year": 2028,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.0,
+      "npv": -895.027358223344,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2028,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0,
+      "npv": -1018.3702123109148,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2028,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2028,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "EGEN1",
+    "year": 2029,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.0,
+      "npv": -895.027358223344,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2029,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0,
+      "npv": -1018.3702123109148,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2029,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2029,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "EGEN1",
+    "year": 2030,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.0,
+      "npv": -895.027358223344,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2030,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0,
+      "npv": -1018.3702123109148,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2030,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2030,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "EGEN1",
+    "year": 2031,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 50.0,
+      "npv": -895.027358223344,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 100.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "electricity": 100.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "H2GEN1",
+    "year": 2031,
+    "action": "supply",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": 3.0,
+      "npv": -1018.3702123109148,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025
+    },
+    "state_after": {
+      "capacity": 10.0,
+      "cash": 0.0,
+      "vintage": 2025,
+      "investment": 0.0,
+      "supply": {
+        "hydrogen": 10.0
+      },
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "IND1",
+    "year": 2031,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  },
+  {
+    "agent_id": "REG",
+    "year": 2031,
+    "action": "hold",
+    "action_inputs": {
+      "current_price": 0.0,
+      "expected_price": null,
+      "npv": null,
+      "capacity_headroom": null,
+      "carbon_price": 0.0
+    },
+    "state_before": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0
+    },
+    "state_after": {
+      "capacity": 0.0,
+      "cash": 0.0,
+      "vintage": 0,
+      "investment": 0.0,
+      "supply": {},
+      "emissions": 0.0
+    }
+  }
+]

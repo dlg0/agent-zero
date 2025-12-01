@@ -1,0 +1,13 @@
+{
+  "run_id": "test-run-001",
+  "created": "2025-01-01T00:00:00Z",
+  "total_emissions": 1000000,
+  "cumulative_emissions": 5000000,
+  "peak_emissions": 150000,
+  "year_net_zero": 2045,
+  "total_capacity": { "solar": 1000, "wind": 500 },
+  "peak_capacity": { "solar": 1200, "wind": 600 },
+  "average_prices": { "electricity": 50.0 },
+  "investment_totals": { "total": 5000, "by_agent_type": { "ElectricityProducer": 5000 } },
+  "security_of_supply": { "electricity": { "shortage_frequency": 0.01, "min_supply_demand_ratio": 0.95 } }
+}

@@ -1,0 +1,52 @@
+{
+  "run_id": "eaf7ac6e2c8c",
+  "created_at": "2025-11-30T21:15:03.387295+00:00",
+  "engine_version": "0.1.0",
+  "commit_hash": null,
+  "years": {
+    "start": 2026,
+    "end": 2031
+  },
+  "assumptions": {
+    "id": "baseline-v1",
+    "version": "1.0.0",
+    "hash": "dev"
+  },
+  "scenario": {
+    "id": "fast-elec-v1",
+    "version": "1.0.0",
+    "hash": "dev"
+  },
+  "seed": 0,
+  "reproduction_command": ".venv/bin/agentzero run --assum baseline-v1 --scen fast-elec-v1 --years 2025:1:2030",
+  "schema_versions": {
+    "assumptions": null,
+    "results": "1.0.0",
+    "scenario": null
+  },
+  "units": {
+    "agent_states": {
+      "action": null,
+      "action_inputs": null,
+      "agent_id": null,
+      "agent_type": null,
+      "capacity": "MW",
+      "expected_price": "USD/MWh",
+      "investment": "MW",
+      "other_state_vars": null,
+      "region": null,
+      "state_after": null,
+      "state_before": null,
+      "year": null
+    },
+    "timeseries": {
+      "commodity": null,
+      "demand": "MWh",
+      "emissions": "tCO2e",
+      "price": "USD/MWh",
+      "region": null,
+      "supply": "MWh",
+      "year": null
+    }
+  }
+}

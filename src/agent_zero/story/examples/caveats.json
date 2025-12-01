@@ -1,0 +1,26 @@
+{
+  "model_limitations": [
+    "This model uses simplified agent decision rules that do not capture all real-world investment considerations",
+    "Technology learning curves are exogenous and do not respond to deployment volumes",
+    "The model operates at annual resolution and does not capture intra-year dynamics",
+    "Grid constraints and transmission limitations are not explicitly modelled",
+    "Agent foresight is limited to a 3-year horizon, which may underestimate strategic behaviour"
+  ],
+  "data_limitations": [
+    "Cost projections are based on IEA WEO 2023 central estimates with significant uncertainty",
+    "Demand growth assumptions are extrapolated from historical trends",
+    "Carbon price trajectories are policy assumptions, not forecasts",
+    "Regional variations in costs and resources are not fully captured"
+  ],
+  "scenario_specific": [
+    "The high ambition carbon price pathway assumes successful international climate negotiations",
+    "Electrolyser cost reductions assume manufacturing scale-up that has not yet been demonstrated",
+    "Industrial demand growth of 4% annually is at the upper end of analyst projections"
+  ],
+  "interpretation_guidance": [
+    "Results should be interpreted as illustrative scenarios, not predictions",
+    "Comparisons between scenarios are more robust than absolute values",
+    "Sensitivity to key assumptions should be explored before policy conclusions",
+    "Emissions trajectories are contingent on assumed policy frameworks remaining in place"
+  ]
+}

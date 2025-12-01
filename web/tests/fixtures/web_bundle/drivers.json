@@ -1,0 +1,3 @@
+[
+  { "factor": "carbon_price", "contribution": 0.4, "direction": "positive", "explanation": "Higher carbon prices increase renewable competitiveness", "related_params": ["carbon_price"], "related_agents": ["solar-aus-1"], "evidence": ["Carbon price increased from $25/t to $75/t over simulation period"] }
+]

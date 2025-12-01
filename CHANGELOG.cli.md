@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial release of agent-zero CLI
-- `agentzero validate` command for validating scenario configurations
+- `agentzero validate-inputs` command for validating scenario configurations
 - `agentzero run` command for running simulations
 - YAML-based scenario configuration
 - CSV/Parquet output support
